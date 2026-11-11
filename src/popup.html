@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Só Notícia Boa</title>
+  <style>
+    :root { --bg:#fff; --fg:#1d2a22; --muted:#5c6b62; --accent:#2e9e5b; --line:#dfe7e2; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#17211b; --fg:#e8f0ea; --muted:#9db0a4; --line:#2a3a31; }
+    }
+    body { margin:0; width:280px; padding:16px; background:var(--bg); color:var(--fg);
+           font:14px/1.4 system-ui, sans-serif; }
+    h1 { font-size:16px; margin:0 0 12px; }
+    label.row { display:flex; align-items:center; justify-content:space-between; gap:12px;
+                padding:10px 0; border-top:1px solid var(--line); }
+    .stat { color:var(--muted); padding:10px 0; border-top:1px solid var(--line); }
+    .stat b { color:var(--accent); font-size:18px; }
+    button { width:100%; margin-top:8px; padding:8px; border:1px solid var(--line); border-radius:8px;
+             background:transparent; color:var(--fg); cursor:pointer; font:inherit; }
+    button:hover { border-color:var(--accent); }
+    #msg { color:var(--muted); font-size:12px; min-height:16px; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <h1>🌱 Só Notícia Boa</h1>
+  <label class="row">
+    <span>Ativado</span>
+    <input type="checkbox" id="enabled">
+  </label>
+  <div class="stat"><b id="total">0</b> notícias ruins trocadas no total</div>
+  <button id="refresh">Atualizar notícias boas</button>
+  <button id="options">Configurações</button>
+  <div id="msg" role="status"></div>
+  <script src="classifier.js"></script>
+  <script src="settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

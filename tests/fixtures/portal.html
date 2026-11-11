@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Portal de teste</title>
+<style>
+  body{font-family:sans-serif;max-width:900px;margin:0 auto}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:16px}
+  .card{border:1px solid #ddd;padding:8px}
+  .card img{width:100%;height:120px;object-fit:cover;background:#ccc}
+  nav a{margin-right:12px}
+</style></head>
+<body>
+<nav><a href="/politica">Política com um nome comprido de seção aqui</a></nav>
+
+<div class="grid" id="grid">
+  <!-- estilo "feed-post" (âncora envolve tudo) -->
+  <div class="card" id="c1"><div class="feed-post">
+    <a class="feed-post-link" href="/rj/noticia/2026/11/10/homem-e-morto-a-tiros-em-assalto.ghtml">
+      <img src="https://img.example/ruim1.jpg" srcset="https://img.example/ruim1-2x.jpg 2x" alt="foto">
+      <span class="chapeu">Crime</span>
+      <h2>Homem é morto a tiros durante assalto em ônibus na Zona Norte</h2>
+    </a>
+    <p class="sub">Vítima de 34 anos foi baleada e não resistiu aos ferimentos.</p>
+  </div></div>
+
+  <!-- notícia boa que deve permanecer intacta -->
+  <div class="card" id="c2"><div class="feed-post">
+    <a href="/educacao/noticia/escola-publica-ganha-olimpiada.ghtml">
+      <img src="https://img.example/boa1.jpg" alt="boa">
+      <h2>Escola pública do Ceará conquista medalha de ouro em olimpíada de matemática</h2>
+    </a>
+    <p class="sub">Alunos do 9º ano superaram 18 milhões de participantes de todo o país.</p>
+  </div></div>
+
+  <!-- estilo UOL: imagem e título em âncoras separadas, mesmo href -->
+  <div class="card" id="c3"><article class="thumbnails-item">
+    <a href="/noticias/cotidiano/criancas-morrem-em-incendio.htm"><img data-src="https://img.example/ruim2.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""></a>
+    <a href="/noticias/cotidiano/criancas-morrem-em-incendio.htm"><h3 class="thumb-title">Duas crianças morrem em incêndio em casa no interior de Minas Gerais</h3></a>
+  </article></div>
+
+  <div class="card" id="c4"><article class="thumbnails-item">
+    <a href="/esporte/palmeiras-massacra-rival.htm"><img src="https://img.example/esporte.jpg" alt=""></a>
+    <a href="/esporte/palmeiras-massacra-rival.htm"><h3 class="thumb-title">Palmeiras massacra rival e assume a liderança do Brasileirão</h3></a>
+  </article></div>
+
+  <!-- lista simples: âncoras vizinhas sem wrapper individual -->
+  <div class="card" id="list">
+    <a href="/seguranca/estupro-suspeito-preso.htm">Suspeito de estupro é preso em flagrante após denúncia de vítima</a>
+    <a href="/economia/dolar-fecha-em-queda.htm">Dólar fecha em queda e bolsa sobe com otimismo no mercado</a>
+  </div>
+</div>
+
+<footer><a href="/sobre">Sobre este portal de notícias de teste agora</a></footer>
+
+<script>
+  // Conteúdo carregado depois (rolagem infinita)
+  setTimeout(() => {
+    const d = document.createElement('div');
+    d.className = 'card'; d.id = 'late';
+    d.innerHTML = '<article><a href="/mundo/bombardeio-atinge-hospital.htm"><h3>Bombardeio russo atinge hospital e deixa dezenas de feridos na Ucrânia</h3></a></article>';
+    document.getElementById('grid').appendChild(d);
+  }, 800);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Só Notícia Boa — Configurações</title>
+  <style>
+    :root { --bg:#fff; --fg:#1d2a22; --muted:#5c6b62; --accent:#2e9e5b; --line:#dfe7e2; --field:#f6f9f7; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#17211b; --fg:#e8f0ea; --muted:#9db0a4; --line:#2a3a31; --field:#1f2c25; }
+    }
+    body { margin:0 auto; max-width:640px; padding:24px 16px 64px; background:var(--bg); color:var(--fg);
+           font:15px/1.5 system-ui, sans-serif; }
+    h1 { font-size:22px; }
+    h2 { font-size:16px; margin:28px 0 4px; }
+    p.hint { color:var(--muted); margin:0 0 10px; font-size:13px; }
+    .cats label { display:block; padding:4px 0; }
+    textarea { width:100%; box-sizing:border-box; min-height:90px; padding:8px; border:1px solid var(--line);
+               border-radius:8px; background:var(--field); color:var(--fg); font:13px/1.4 ui-monospace, monospace; }
+    button { margin-top:20px; padding:10px 20px; border:0; border-radius:8px; background:var(--accent);
+             color:#fff; font:inherit; cursor:pointer; }
+    #status { margin-left:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>🌱 Só Notícia Boa</h1>
+
+  <h2>O que remover</h2>
+  <p class="hint">Marque os tipos de notícia que devem ser trocados por notícias boas.</p>
+  <div class="cats" id="cats"></div>
+
+  <h2>Palavras extras</h2>
+  <p class="hint">Uma por linha. Qualquer manchete com essas palavras também será trocada.</p>
+  <textarea id="words" placeholder="ex.: overdose"></textarea>
+
+  <h2>Fontes de notícias boas (RSS)</h2>
+  <p class="hint">Um endereço de feed por linha. Ao salvar, o Chrome pede permissão para acessar fontes novas.</p>
+  <textarea id="feeds"></textarea>
+
+  <button id="save">Salvar</button><span id="status" role="status"></span>
+
+  <script src="classifier.js"></script>
+  <script src="settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

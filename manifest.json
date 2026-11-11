@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Só Notícia Boa",
+  "description": "Troca notícias de violência e tragédia nos portais por notícias boas que dão alento.",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.sonoticiaboa.com.br/*",
+    "https://www.razoesparaacreditar.com/*"
+  ],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.globo.com/*",
+        "*://*.uol.com.br/*",
+        "*://*.estadao.com.br/*",
+        "*://*.r7.com/*",
+        "*://*.terra.com.br/*",
+        "*://*.metropoles.com/*",
+        "*://*.cnnbrasil.com.br/*",
+        "*://*.ig.com.br/*",
+        "*://*.correiobraziliense.com.br/*"
+      ],
+      "js": ["src/classifier.js", "src/settings.js", "src/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Só Notícia Boa",
+    "default_popup": "src/popup.html"
+  },
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  }
+}
