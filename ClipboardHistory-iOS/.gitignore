@@ -1,0 +1,9 @@
+*.xcodeproj
+xcuserdata/
+DerivedData/
+.DS_Store
+# Gerados pelo XcodeGen
+App/Info.plist
+App/App.entitlements
+Keyboard/Info.plist
+Keyboard/Keyboard.entitlements
